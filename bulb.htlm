@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Bulb Pull Animation</title>
+<style>
+"  {
+    box-sizing: border-box;
+}
+:root {
+    --on: 0
+    --bg: hsl(calc(200 - (var(--on) * 160)), calc((20 + (var(--on) * 50)) * 1%), calc((20 +var(--on) *60)) *1%);
+    --cord: hsl(0, 0%, calc((60 - (var(--on) * 50)) * 1%));
+    --stroke: hsl(0, 0%, 100%, calc((60 - (var(--on) * 50)) * 1%));
+    --shine: hsla(0, 0%, 100%, calc(0.75 - (var(--on) * 0.5)));
+    --cap: hsl(0, 0%, calc((40 + (var(--on) * 30)) * 1%));
+    --filament: hsl(45, calc(var(--on) * 80%), calc((25 + (var(--on) * 75)) * 1%));
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    allign-items: center;
+    justify-comment: centre;
+    background: var(--bg);
+}
+.toggle-scene {
+    overflow:visible !important;
+    height: 50vmin;
+    position: absolute;
+}
+.toggle-scene_cord {
+    stroke: var(--cord);
+    cursor: move;
+}
+.toggle-scene_cord:nth-of-type(1) {
+    display: none;
+}
+.toggle-scene_cord:nth-of-type(2),
+.toggle-scene_cord:nth-of-type(3),
+.toggle-scene_cord:nth-of-type(4),
+.toggle-scene_cord:nth-of-type(5) {
+    display: none;
+}
+.toggle-scene_cord-end {
+    stroke: var(--cord);
+    fill: var(--cord);
+}
+.toggle-scene_dummy-cord {
+    stroke-width: 6;
+    stroke: var(--cord);
+}
+.bulb_filament {
+    stroke: var(--filament);
+}
+.bulb_shine {
+    stroke: var(--shine);
+}
+.bulb_flash {
+    stroke: hsl(45, 80%, 80%);
+    display: none;
+}
+.bulb_bulb {
+    stroke: var(--stroke);
+    fill: hsla(calc(180 - (95 * var(--on))), 80%, 80%, calc(0.1 + (0.4 * var(--on))));
+}
+.bulb_cap {
+    fill: var(--cap);
+}
+.bulb_cap-shine {
+    fill: var(--shine);
+}
+.bulb_cap-outline {
+    stroke: var(--stroke);
+}
+</style>
+</head>
+<body>
